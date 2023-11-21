@@ -49,23 +49,23 @@ def display_NH():
         
         
 def display_TP():
-    #try:
+    try:
         f_str = str(entry_f.get())
         high = entry_upper.get()
         low = entry_lower.get()
         f = sym.sympify(f_str)
-        result = tich_phan(f, (low, high))
+        result = tich_phan(f, low, high)
         text_TP.delete(1.0, tk.END)
         text_TP.insert(tk.END, result)
         
-    #except: 
-        #messagebox.showerror("Lỗi", "Nhập lại.")
-       # text_TP.delete(1.0, tk.END)  
+    except Exception as e: 
+        messagebox.showerror("Lỗi", str(e))
+        text_TP.delete(1.0, tk.END)  
 
 window = tk.Tk()
 
 window.title("Giải tích cơ bản")
-window.geometry("1920x1080")
+window.geometry("900x360")
 entry_label = tk.Label(window, text="Nhập hàm số: ").grid(row = 0, column = 0)
 entry_f = tk.Entry(window, width=100)
 entry_f.grid(row = 0, column = 1)
