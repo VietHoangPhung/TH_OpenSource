@@ -2,10 +2,23 @@ import tkinter as tk
 import sympy as sym
 from tkinter import messagebox
 
+
+def dao_ham_w():
+    dh_w = tk.Toplevel(window)
+    dh_w.title("Dao ham")
+    f_label = tk.Label(dh_w, text = "Nhap ham so theo bien x:")
+    f_label.pack()
+    f_entry = tk.Entry(dh_w)
+    f_entry.pack()
+    #cal = tk.Button(dh_w, text = "Tinh dao ham", command=)
+    result = tk.Label(dh_w)
+
+
 def dao_ham(f, var = 'x'):
     x = sym.symbols(var)
     result = sym.diff(f, x)
     return str(result)
+
 
     
 def tich_phan(f, var = 'x', lower_limit = None, upper_limit  = None):
